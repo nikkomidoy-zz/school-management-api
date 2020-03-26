@@ -1,8 +1,10 @@
 import os
-from os.path import join
 from distutils.util import strtobool
+from os.path import join
+
 import dj_database_url
 from configurations import Configuration
+
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 
@@ -24,7 +26,8 @@ class Common(Configuration):
 
         # Your apps
         'school_management.users',
-
+        'schools',
+        'students',
     )
 
     # https://docs.djangoproject.com/en/2.0/topics/http/middleware/
