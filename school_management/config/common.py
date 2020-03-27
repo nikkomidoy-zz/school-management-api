@@ -1,8 +1,10 @@
 import os
-from os.path import join
 from distutils.util import strtobool
+from os.path import join
+
 import dj_database_url
 from configurations import Configuration
+
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 
@@ -24,7 +26,8 @@ class Common(Configuration):
 
         # Your apps
         'school_management.users',
-
+        'schools',
+        'students',
     )
 
     # https://docs.djangoproject.com/en/2.0/topics/http/middleware/
@@ -59,7 +62,7 @@ class Common(Configuration):
     }
 
     # General
-    APPEND_SLASH = False
+    APPEND_SLASH = True
     TIME_ZONE = 'UTC'
     LANGUAGE_CODE = 'en-us'
     # If you set this to False, Django will make some optimizations so as not
@@ -197,5 +200,10 @@ class Common(Configuration):
         'DEFAULT_AUTHENTICATION_CLASSES': (
             'rest_framework.authentication.SessionAuthentication',
             'rest_framework.authentication.TokenAuthentication',
-        )
+        ),
+        'DEFAULT_FILTER_BACKENDS': [
+            'django_filters.rest_framework.DjangoFilterBackend',
+            'rest_framework.filters.SearchFilter',
+            'rest_framework.filters.OrderingFilter',
+        ]
     }
