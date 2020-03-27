@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        
+        
+        <link rel="shortcut icon" href="../../img/favicon.ico">
+        <title>Schools - School Management API</title>
+        <link href="../../css/bootstrap-custom.min.css" rel="stylesheet">
+        <link href="../../css/font-awesome.min.css" rel="stylesheet">
+        <link href="../../css/base.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
+        <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!--[if lt IE 9]>
+            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+            <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+        <![endif]-->
+
+        <script src="../../js/jquery-1.10.2.min.js" defer></script>
+        <script src="../../js/bootstrap-3.0.3.min.js" defer></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+        <script>hljs.initHighlightingOnLoad();</script> 
+    </head>
+
+    <body>
+
+        <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+            <div class="container">
+
+                <!-- Collapsed navigation -->
+                <div class="navbar-header">
+                    <!-- Expander button -->
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="../..">School Management API</a>
+                </div>
+
+                <!-- Expanded navigation -->
+                <div class="navbar-collapse collapse">
+                        <!-- Main navigation -->
+                        <ul class="nav navbar-nav">
+                            <li >
+                                <a href="../..">Home</a>
+                            </li>
+                            <li class="dropdown active">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">API <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li >
+    <a href="../authentication/">Authentication</a>
+</li>
+                                    
+<li >
+    <a href="../users/">Users</a>
+</li>
+                                    
+<li class="active">
+    <a href="./">Schools</a>
+</li>
+                                    
+<li >
+    <a href="../students/">Students</a>
+</li>
+                                </ul>
+                            </li>
+                        </ul>
+
+                    <ul class="nav navbar-nav navbar-right">
+                        <li>
+                            <a href="#" data-toggle="modal" data-target="#mkdocs_search_modal">
+                                <i class="fa fa-search"></i> Search
+                            </a>
+                        </li>
+                            <li >
+                                <a rel="next" href="../users/">
+                                    <i class="fa fa-arrow-left"></i> Previous
+                                </a>
+                            </li>
+                            <li >
+                                <a rel="prev" href="../students/">
+                                    Next <i class="fa fa-arrow-right"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="https://github.com/nikkomidoy/school-management-api/edit/master/docs/api/schools.md"><i class="fa fa-github"></i> Edit on GitHub</a>
+                            </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+                <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
+    <ul class="nav bs-sidenav">
+        <li class="main active"><a href="#school">School</a></li>
+            <li><a href="#get-all-schools-information">Get all schools information</a></li>
+            <li><a href="#get-specific-school-data">Get specific school data</a></li>
+            <li><a href="#get-all-students-in-a-specific-school">Get all students in a specific school</a></li>
+            <li><a href="#add-a-student-in-a-school">Add a student in a school</a></li>
+    </ul>
+</div></div>
+                <div class="col-md-9" role="main">
+
+<h1 id="school">School</h1>
+<p>Create, retrieve, update and delete operations for School</p>
+<h2 id="get-all-schools-information">Get all schools information</h2>
+<p><strong>Request</strong>:</p>
+<p><code>GET</code> <code>/api/v1/schools/</code></p>
+<p>Parameters:</p>
+<p><em>Note:</em></p>
+<ul>
+<li><strong><a href="../authentication/">Authorization Protected</a></strong></li>
+</ul>
+<p><strong>Response</strong>:</p>
+<pre><code class="json">HTTP 200 OK
+Allow: GET, POST, HEAD, OPTIONS
+Content-Type: application/json
+Vary: Accept
+
+{
+    &quot;count&quot;: 2,
+    &quot;next&quot;: null,
+    &quot;previous&quot;: null,
+    &quot;results&quot;: [
+        {
+            &quot;id&quot;: 1,
+            &quot;created&quot;: &quot;2020-03-27T07:04:39+0000&quot;,
+            &quot;modified&quot;: &quot;2020-03-27T07:04:39+0000&quot;,
+            &quot;name&quot;: &quot;Kirstenmouth&quot;,
+            &quot;max_student_count&quot;: 10
+        },
+        {
+            &quot;id&quot;: 2,
+            &quot;created&quot;: &quot;2020-03-27T07:04:39+0000&quot;,
+            &quot;modified&quot;: &quot;2020-03-27T07:04:39+0000&quot;,
+            &quot;name&quot;: &quot;Hodgesberg&quot;,
+            &quot;max_student_count&quot;: 10
+        }
+    ]
+}
+</code></pre>
+
+<h2 id="get-specific-school-data">Get specific school data</h2>
+<p><strong>Request</strong>:</p>
+<p><code>GET</code> <code>/api/v1/schools/:id/</code></p>
+<p><em>Note:</em>
+- <strong><a href="../authentication/">Authorization Protected</a></strong></p>
+<p><strong>Response</strong>:</p>
+<pre><code class="json">HTTP 200 OK
+Allow: GET, PUT, PATCH, DELETE, HEAD, OPTIONS
+Content-Type: application/json
+Vary: Accept
+
+{
+    &quot;id&quot;: 1,
+    &quot;created&quot;: &quot;2020-03-27T07:04:39+0000&quot;,
+    &quot;modified&quot;: &quot;2020-03-27T07:04:39+0000&quot;,
+    &quot;name&quot;: &quot;Kirstenmouth&quot;,
+    &quot;max_student_count&quot;: 10
+}
+</code></pre>
+
+<h2 id="get-all-students-in-a-specific-school">Get all students in a specific school</h2>
+<p><strong>Request</strong>:</p>
+<p><code>GET</code> <code>/api/v1/schools/:id/students/</code></p>
+<p><em>Note:</em>
+- <strong><a href="../authentication/">Authorization Protected</a></strong></p>
+<p><strong>Response</strong>:</p>
+<pre><code class="json">
+{
+    &quot;count&quot;: 2,
+    &quot;next&quot;: null,
+    &quot;previous&quot;: null,
+    &quot;results&quot;: [
+        {
+            &quot;id&quot;: 5,
+            &quot;school&quot;: {
+                &quot;id&quot;: 1,
+                &quot;created&quot;: &quot;2020-03-27T07:04:39+0000&quot;,
+                &quot;modified&quot;: &quot;2020-03-27T07:04:39+0000&quot;,
+                &quot;name&quot;: &quot;Kirstenmouth&quot;,
+                &quot;max_student_count&quot;: 10
+            },
+            &quot;created&quot;: &quot;2020-03-27T07:04:39+0000&quot;,
+            &quot;modified&quot;: &quot;2020-03-27T07:04:39+0000&quot;,
+            &quot;student_id&quot;: &quot;a3c369fc-91c4-4429-b049-f4cf68c62880&quot;,
+            &quot;first_name&quot;: &quot;Luis&quot;,
+            &quot;last_name&quot;: &quot;Contreras&quot;
+        },
+        {
+            &quot;id&quot;: 4,
+            &quot;school&quot;: {
+                &quot;id&quot;: 1,
+                &quot;created&quot;: &quot;2020-03-27T07:04:39+0000&quot;,
+                &quot;modified&quot;: &quot;2020-03-27T07:04:39+0000&quot;,
+                &quot;name&quot;: &quot;Kirstenmouth&quot;,
+                &quot;max_student_count&quot;: 10
+            },
+            &quot;created&quot;: &quot;2020-03-27T07:04:39+0000&quot;,
+            &quot;modified&quot;: &quot;2020-03-27T07:04:39+0000&quot;,
+            &quot;student_id&quot;: &quot;e565ede0-8363-427b-9650-b5024b9c9f36&quot;,
+            &quot;first_name&quot;: &quot;Matthew&quot;,
+            &quot;last_name&quot;: &quot;Perez&quot;
+        }
+    ]
+}
+</code></pre>
+
+<h2 id="add-a-student-in-a-school">Add a student in a school</h2>
+<p><strong>Request</strong>:</p>
+<p><code>POST</code> <code>/api/v1/schools/:id/students/</code></p>
+<p><em>Note:</em>
+- <strong><a href="../authentication/">Authorization Protected</a></strong></p>
+<p><strong>Response</strong>:</p>
+<pre><code class="json">HTTP 201 Created
+Allow: GET, POST, HEAD, OPTIONS
+Content-Type: application/json
+Vary: Accept
+
+{
+    &quot;id&quot;: 39,
+    &quot;created&quot;: &quot;2020-03-27T09:25:26+0000&quot;,
+    &quot;modified&quot;: &quot;2020-03-27T09:25:26+0000&quot;,
+    &quot;student_id&quot;: &quot;085a03d5-05e4-4110-877a-7c931c597599&quot;,
+    &quot;first_name&quot;: &quot;Another&quot;,
+    &quot;last_name&quot;: &quot;Student&quot;,
+    &quot;school&quot;: {
+        &quot;id&quot;: 1,
+        &quot;created&quot;: &quot;2020-03-27T07:04:39+0000&quot;,
+        &quot;modified&quot;: &quot;2020-03-27T07:04:39+0000&quot;,
+        &quot;name&quot;: &quot;Kirstenmouth&quot;,
+        &quot;max_student_count&quot;: 10
+    }
+}
+</code></pre></div>
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+                <p>Copyright &copy; 2019, <a href="https://github.com/nikkomidoy">nikkomidoy</a>.</p>
+            <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
+        </footer>
+        <script>
+            var base_url = "../..",
+                shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
+        </script>
+        <script src="../../js/base.js" defer></script>
+        <script src="../../search/main.js" defer></script>
+
+        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="Search Modal" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                <h4 class="modal-title" id="exampleModalLabel">Search</h4>
+            </div>
+            <div class="modal-body">
+                <p>
+                    From here you can search these documents. Enter
+                    your search terms below.
+                </p>
+                <form role="form">
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="Keyboard Shortcuts Modal" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                <h4 class="modal-title" id="exampleModalLabel">Keyboard Shortcuts</h4>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="next shortcut"><kbd>n</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td class="prev shortcut"><kbd>p</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+
+    </body>
+</html>
