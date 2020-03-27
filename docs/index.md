@@ -1,7 +1,4 @@
-# school-management-api
-
-[![Build Status](https://travis-ci.org/nikkomidoy/school-management-api.svg?branch=master)](https://travis-ci.org/nikkomidoy/school-management-api)
-[![Built with](https://img.shields.io/badge/Built_with-Cookiecutter_Django_Rest-F7B633.svg)](https://github.com/agconti/cookiecutter-django-rest)
+# School Management API
 
 API for handling records for schools and students. Check out the project's [documentation](http://nikkomidoy.github.io/school-management-api/).
 
@@ -21,4 +18,15 @@ Create a superuser to login to the admin:
 
 ```bash
 docker-compose run --rm web ./manage.py createsuperuser
+```
+
+API available at this link: `http://127.0.0.1:8000/api/v1/`
+
+# Admin access
+
+After running series of setup which includes migrations, you will have a default admin access as follows:
+```
+username: admin
+email: admin@admin.com
+password: adminpassword
 ```
