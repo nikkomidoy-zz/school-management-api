@@ -1,7 +1,4 @@
-# school-management-api
-
-[![Build Status](https://travis-ci.org/nikkomidoy/school-management-api.svg?branch=master)](https://travis-ci.org/nikkomidoy/school-management-api)
-[![Built with](https://img.shields.io/badge/Built_with-Cookiecutter_Django_Rest-F7B633.svg)](https://github.com/agconti/cookiecutter-django-rest)
+# School Management API
 
 API for handling records for schools and students. Check out the project's [documentation](http://nikkomidoy.github.io/school-management-api/).
 

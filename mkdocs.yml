@@ -1,4 +1,4 @@
-site_name: school_management
+site_name: School Management API
 site_description: API for handling records of schools and students
 repo_url: https://github.com/nikkomidoy/school-management-api
 site_dir: site
