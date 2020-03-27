@@ -1,5 +1,5 @@
 site_name: school_management
-site_description: API for handling records for schools and students
+site_description: API for handling records of schools and students
 repo_url: https://github.com/nikkomidoy/school-management-api
 site_dir: site
 copyright: Copyright &copy; 2019, <a href="https://github.com/nikkomidoy">nikkomidoy</a>.
@@ -10,3 +10,5 @@ nav:
     -   API:
             -   Authentication: 'api/authentication.md'
             -   Users: 'api/users.md'
+            -   Schools: 'api/schools.md'
+            -   Students: 'api/students.md'

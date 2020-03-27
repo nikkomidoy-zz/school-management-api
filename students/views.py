@@ -12,5 +12,5 @@ class StudentViewSet(NestedViewSetMixin,
     queryset = Student.objects.all().prefetch_related('school')
     serializer_class = StudentSerializer
     filterset_fields = ('first_name', 'last_name',)
-    search_fields = ('first_name', 'last_name'),
-    ordering_fields = ('created', 'first_name')
+    search_fields = ('first_name', 'last_name',)
+    ordering_fields = ('created', 'first_name',)
