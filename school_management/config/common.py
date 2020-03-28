@@ -39,6 +39,8 @@ class Common(Configuration):
         'django.contrib.auth.middleware.AuthenticationMiddleware',
         'django.contrib.messages.middleware.MessageMiddleware',
         'django.middleware.clickjacking.XFrameOptionsMiddleware',
+
+        'whitenoise.middleware.WhiteNoiseMiddleware',
     )
 
     ALLOWED_HOSTS = ["*"]
@@ -81,6 +83,9 @@ class Common(Configuration):
         'django.contrib.staticfiles.finders.FileSystemFinder',
         'django.contrib.staticfiles.finders.AppDirectoriesFinder',
     )
+
+    # Whitenoise
+    STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
     # Media files
     MEDIA_ROOT = join(os.path.dirname(BASE_DIR), 'media')
